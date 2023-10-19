@@ -1,7 +1,17 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.matrix {
+  display: grid;
+}
+
+.matrix__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.matrix__item--diagonal-principal {
+  background-color: #6bab54;
+}
+
+.matrix__item--diagonal-secondary {
+  background-color: #9454AB;
+}

@@ -1,21 +1,34 @@
 import styles from './grid.module.css';
-import {drawMatrix} from "@4cee-monorepo/matrix";
 
 export interface GridProps {
-  rows: number;
-  columns: number;
+  matrix: number[][];
 }
 
-export function Grid({rows, columns}: GridProps) {
-  const matrixDrawn = drawMatrix();
-  console.log(matrixDrawn);
+export function Grid({ matrix }: GridProps) {
+  const size = matrix.length;
 
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Grid!</h1>
+    <div
+      className={styles['matrix']}
+      style={{
+        grid: `repeat(${size}, 40px) / repeat(${size}, 40px)`,
+      }}
+    >
+      {matrix.map((row, r) =>
+        row.map((column, c) => {
+          const classes = [
+            styles['matrix__item'],
+            r === c ? styles['matrix__item--diagonal-principal'] : '',
+            r + c == size - 1 ? styles['matrix__item--diagonal-secondary'] : '',
+          ] as string[];
 
-      Will draw
-      {rows}x{columns}
+          return (
+            <div className={classes.join(' ')} key={r + c}>
+              {column}
+            </div>
+          );
+        })
+      )}
     </div>
   );
 }
