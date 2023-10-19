@@ -9,7 +9,9 @@ describe('App', () => {
   });
 
   it('should have a greeting as the title', () => {
-    const { getByText } = render(<App />);
-    expect(getByText(/Welcome/gi)).toBeTruthy();
+    const { getByRole } = render(<App />);
+    expect(getByRole('region', { name: 'Grid size' })).toBeTruthy();
+    expect(getByRole('region', { name: 'Grid' })).toBeTruthy();
+    expect(getByRole('region', { name: 'Grid information' })).toBeTruthy();
   });
 });

@@ -9,7 +9,7 @@ export function App() {
   const [gridSize, setGridSize] = useState<number>(2);
   const [maxGridSize, setMaxGridSize] = useState<number>(4);
 
-  let [matrix, diagonalSums] = useMemo(() => {
+  const [matrix, diagonalSums] = useMemo(() => {
     const matrix = generateIntMatrix(gridSize, -100, 100);
     const diagonalSums = calculateDiagonalSums(matrix);
 

@@ -19,7 +19,7 @@ export function Grid({ matrix }: GridProps) {
           const classes = [
             styles['matrix__item'],
             r === c ? styles['matrix__item--diagonal-principal'] : '',
-            r + c == size - 1 ? styles['matrix__item--diagonal-secondary'] : '',
+            r + c === size - 1 ? styles['matrix__item--diagonal-secondary'] : '',
           ] as string[];
 
           return (
